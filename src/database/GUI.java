@@ -44,8 +44,8 @@ public class GUI extends javax.swing.JFrame {
         return String.valueOf(id);
     }
     
-    protected boolean isInTable(String column, String table, String value) {
-        String query = "select count("+column+") as cnt from " + table + " where "+column+"='"+value+"'";
+    protected boolean isInTable(String column, String table, String value, String additionalIf) {
+        String query = "select count("+column+") as cnt from " + table + " where "+column+"='"+value+"' "+additionalIf;
         String findAccountString = dbManager.executeQuery(query, "cnt");
         int findAccountInt = Integer.parseInt(findAccountString);
         if (findAccountInt > 0) {

@@ -200,7 +200,7 @@ public class SignUpGUI extends GUI {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jTextField1.getText().length() == 0 ||
             jTextField2.getText().length() == 0 ||
-            jPasswordField1.getText().length() == 0 ||
+            String.valueOf(jPasswordField1.getPassword()).length() == 0 ||
             jTextField4.getText().length() == 0 ||
             jTextField5.getText().length() == 0 ||
             jTextField6.getText().length() == 0 ) {
@@ -215,7 +215,7 @@ public class SignUpGUI extends GUI {
         newValuesAccount.add(accountId);
 
         String login = jTextField1.getText();
-        if (isInTable("login","konto_uzytkownika",login)) {
+        if (isInTable("login","konto_uzytkownika",login,"")) {
             JOptionPane.showMessageDialog(null, "Użytkownik o podanym loginie już istnieje!");
             return;
         }

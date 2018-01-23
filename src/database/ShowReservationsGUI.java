@@ -88,6 +88,11 @@ public class ShowReservationsGUI extends GUI {
         jScrollPane4.setViewportView(jTable4);
 
         jButton2.setText("Zapłać");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Kupione bilety");
@@ -192,6 +197,10 @@ public class ShowReservationsGUI extends GUI {
             JOptionPane.showMessageDialog(null, "Wybierz rezerwację do odwołania.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        GUI.changeWindow(this, new BuyTicketAfterReservationGUI(dbManager));
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void createTable(JTable jTable) {
         String query = "select r.id_rezerwacji, c.data_wyjazdu, c.stacja_poczatkowa, c.data_przyjazdu," +

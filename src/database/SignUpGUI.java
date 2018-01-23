@@ -221,7 +221,7 @@ public class SignUpGUI extends GUI {
         }
         newValuesAccount.add(login);
 
-        String hash = hash(jPasswordField1.getText());
+        String hash = hash(String.valueOf(jPasswordField1.getPassword()));
         newValuesAccount.add(hash);
         
         dbManager.insertRow("konto_uzytkownika",newValuesAccount);

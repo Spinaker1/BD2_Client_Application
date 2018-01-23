@@ -121,7 +121,7 @@ public class MainGUI extends GUI {
         dbManager.startTransaction();
 
         String login = jTextField1.getText();
-        String password = jPasswordField1.getText();
+        String password = String.valueOf(jPasswordField1.getPassword());
         if (!(isInTable("login","konto_uzytkownika",login) && isInTable("hash_hasla","konto_uzytkownika",hash(password)))) {
             JOptionPane.showMessageDialog(null, "Błędny login lub hasło!");
             dbManager.endTransaction();
